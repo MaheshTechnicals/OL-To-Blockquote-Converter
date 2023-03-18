@@ -48,7 +48,8 @@ btn2.addEventListener("click", () => {
       btn2.innerHTML = "Copy Code"
       btn2.style.background = "transparent"
       btn2.style.color = "black"
-    }, 2000)
+      output.value = ""
+    }, 20000)
   }
 })
 
@@ -71,7 +72,7 @@ let getCode = () => {
 
 
     output.value += a
-
+    input.value = ""
 
   })
 

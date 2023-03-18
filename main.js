@@ -49,7 +49,7 @@ btn2.addEventListener("click", () => {
       btn2.style.background = "transparent"
       btn2.style.color = "black"
       output.value = ""
-    }, 20000)
+    }, 2000)
   }
 })
 

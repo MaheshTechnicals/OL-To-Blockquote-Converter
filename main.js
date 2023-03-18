@@ -71,7 +71,7 @@ let getCode = () => {
     let a = `<blockquote class="mycard">${each}</blockquote>`
 
 
-    output.value += a
+
     input.value = ""
 
   })

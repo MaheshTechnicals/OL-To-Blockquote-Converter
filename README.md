@@ -1,6 +1,7 @@
 <h1>From List to Highlight: Converting HTML's OL to Blockquote for Better Readability</h1>
 
-<a href="https://o2b.netlify.app" target="_blank" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px; border: none; font-weight: bold;">OL to Blockquote Converter Tool</a>
+<a href="https://o2b.netlify.app/" target="_blank" style="text-decoration: none; background: yellow; color: black; padding: 10px 20px ; border-radius: 10px; font-weight: bold;">OL To Blockquote Converter Tool</a>
+
 
 <p>Introducing the "OL to Blockquote Converter Tool": Convert Your HTML Lists to Blockquotes with Ease
 

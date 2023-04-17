@@ -20,7 +20,7 @@ btn.addEventListener("click", () => {
   });
 
 
-
+console.log (uniqueArr)
 
   uniqueArr.forEach((every) => {
 

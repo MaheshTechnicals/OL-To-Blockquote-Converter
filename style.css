@@ -46,3 +46,11 @@ h1 {
 label {
   margin-bottom: 5px;
 }
+
+#count {
+  border-radius: 10px;
+  background: red;
+  color: white;
+  font-size: 20px;
+  border: none;
+}

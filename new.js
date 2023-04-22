@@ -20,7 +20,7 @@ btn.addEventListener("click", () => {
   });
 
 
-console.log (uniqueArr)
+  count.innerHTML = uniqueArr.length + 1
 
   uniqueArr.forEach((every) => {
 

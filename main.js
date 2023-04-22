@@ -6,7 +6,7 @@ let btn = document.querySelector("#btn")
 let output = document.querySelector("#output")
 
 let btn2 = document.querySelector("#copy")
-
+let count = document.querySelector("#count")
 
 
 btn.addEventListener("click", () => {

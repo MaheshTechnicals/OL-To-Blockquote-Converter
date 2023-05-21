@@ -1,35 +1,124 @@
-let display = document.querySelector("#display");
 let input = document.querySelector("#input")
-
-let btn = document.querySelector("#btn")
-
 let output = document.querySelector("#output")
-
+let btn = document.querySelector("#btn")
 let btn2 = document.querySelector("#copy")
-let count = document.querySelector("#count")
+let display = document.querySelector("#display")
 
+count.style.display = "none"
+
+
+
+// On Click Activity On Get Code Button.
 
 btn.addEventListener("click", () => {
 
-  display.innerHTML = input.value
-  getCode()
+  if (input.value == "") {
+    input.style.border = "2px solid yellow"
+  }
+
+  else {
+    show()
+    outputLogic()
+    countbutton()
+  }
+
+
 })
 
 
+
+
+
+
+
+// Function for Geting HTML Data and show in the display.
+
+let show = () => {
+  display.innerHTML = input.value
+
+
+  // Select All Li.
+  let lilist = document.querySelectorAll("li")
+
+
+  // Create One Array For store all li strings.
+  let arr1 = []
+
+  //Console all li strings.
+
+  lilist.forEach((each) => {
+
+    arr1.push(each.innerText)
+
+  })
+
+
+  // Remove That strings which don't have "."" or "!" or "।".
+
+
+  const removeExtras = arr1.filter(str => {
+    const lastChar = str.slice(-1);
+    return lastChar === "." || lastChar === "!" || lastChar === "|" || lastChar === "।" || lastChar === `"`;
+  });
+
+
+
+
+
+  // Remove Duplicate Strings From above array.
+
+  const uniqueStrings = Array.from(new Set(removeExtras));
+
+
+
+  // Display all your filtered array of strings in output box.
+
+  uniqueStrings.forEach((every) => {
+
+
+    let c = `<blockquote class="mycard">${every}</blockquote>`
+
+    output.value += c
+  })
+
+
+  // Added Numbeeer of Shayaries we have :
+  count.innerHTML = uniqueStrings.length
+
+  // Remove data from display after genrate.
+  display.innerHTML = null
+
+  input.value = null
+
+
+  count.style.display = ""
+
+
+}
+
+
+
+
+
+
+
+
+
+// copy code Button activity..
 
 btn2.addEventListener("click", () => {
 
   if (output.value == "") {
 
-
+    console.log("hi")
     btn2.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`
     btn2.style.background = "red"
     btn2.style.color = "white"
 
     setTimeout(() => {
 
-      btn2.innerHTML = "Copy Code"
-      btn2.style.background = "transparent"
+      btn2.innerHTML = "Copy"
+      btn2.style.background = "white"
       btn2.style.color = "black"
     }, 2000)
 
@@ -37,46 +126,54 @@ btn2.addEventListener("click", () => {
   }
 
   else {
+
+    // Reset Count.
+    count.innerHTML = "0"
+
+    // input & output border remove.
+    input.style.border = "none"
+    output.style.border = "none"
+
+    // copy text to clipboard.
+
     navigator.clipboard.writeText(output.value)
 
     btn2.innerHTML = `<i class="fa-solid fa-check"></i>`
     btn2.style.background = "green"
     btn2.style.color = "white"
+    count.style.display = "none"
 
     setTimeout(() => {
 
-      btn2.innerHTML = "Copy Code"
-      btn2.style.background = "transparent"
+      btn2.innerHTML = "Copy"
+      btn2.style.background = "white"
       btn2.style.color = "black"
       output.value = ""
+      count.style.background = "red"
     }, 2000)
   }
 })
 
 
 
-let getCode = () => {
-
-  // Get a reference to the ordered list element
-  const orderedList = document.querySelector('ol');
-
-  // Get a reference to all the list item elements
-  const listItems = orderedList.querySelectorAll('li');
-
-  // Use map to extract the text content of each list item element and store it in an array
-  const listArray = Array.from(listItems).map(item => item.textContent);
-
-
-  listArray.forEach((each) => {
-    let a = `<blockquote class="mycard">${each}</blockquote>`
-
-
-
-    input.value = ""
-
-  })
+// if we have content in output box.
+let outputLogic = () => {
+  if (output.value != "") {
+    output.style.border = "2px solid #2ecc71"
+  }
+}
 
 
 
 
+
+
+// Count button color changes.
+let countbutton = () => {
+  if (output.value == "") {
+    count.style.background = "red"
+  }
+  else {
+    count.style.background = "#2ecc71"
+  }
 }
